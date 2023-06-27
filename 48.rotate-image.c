@@ -18,7 +18,7 @@ void rotate(int **matrix, int matrixSize, int *matrixColSize)
     {
         for (int i = 0; i < r - l; i++) // run loop as many times as the size of the colum or row -1
         {
-            // top is equal to l because we have a square
+            // top is equal to l because we have a squares
             int top = l;
             int bottom = r;
 
