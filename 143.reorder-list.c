@@ -18,7 +18,6 @@ void reorderList(struct ListNode *head)
     {
         return;
     }
-   
 
     // find mid
     struct ListNode *slow = head, *fast = head->next, *mid;
