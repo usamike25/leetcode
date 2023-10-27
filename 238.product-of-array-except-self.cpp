@@ -16,16 +16,14 @@ public:
 
         int prefix = 1;
         int postfix = 1;
-        for (int i = 0; i < nums.size(); i++)
+        for (int i = 0, x =  nums.size() - 1; i < nums.size(); i++, x--)
         {
-            myArray[i] = prefix;
+            myArray[i] *= prefix;
             prefix *= nums[i];
+            myArray[x] *= postfix;
+            postfix *= nums[x];
         }
-        for (int i = nums.size() - 1; i >= 0; i--)
-        {
-            myArray[i] *= postfix;
-            postfix *= nums[i];
-        }
+
         return myArray;
     }
 };
