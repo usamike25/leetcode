@@ -11,7 +11,6 @@ public:
     int searchInsert(vector<int> &nums, int target)
     {
         // binary search
-
         int r = nums.size() - 1;
         int l = 0;
         int m;
