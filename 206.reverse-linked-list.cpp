@@ -20,19 +20,17 @@ class Solution
 public:
     ListNode *reverseList(ListNode *head)
     {
-
-        // iterative
-        ListNode *next;
+        ListNode *next = NULL;
         ListNode *prev = NULL;
 
-        while (head != NULL) // stop when head is NULL
+        while (head)
         {
-            next = head->next; // update next
-            head->next = prev; // link to previous
-            prev = head;       // update previous
-            head = next;       // update head
+            next = head->next;
+            head->next = prev;
+            prev = head;
+            head = next;
         }
-        return prev; // return prev, because head will be NULL
+        return prev;
     }
 };
 // @lc code=end
