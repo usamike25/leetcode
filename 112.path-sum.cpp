@@ -21,18 +21,24 @@ class Solution
 public:
     bool hasPathSum_rec(TreeNode *root, int targetSum, int cur_sum)
     {
+        // dfs
+
         // basecase
         if (!root)
         {
+
             return false;
         }
 
-        if (cur_sum + root->val == targetSum && !root->left && !root->right)
+        // found leafe with target sum and no chlideren
+        if (root->val + cur_sum == targetSum && !root->left && !root->right)
         {
             return true;
         }
-
-        return hasPathSum_rec(root->left, targetSum, cur_sum + root->val) || hasPathSum_rec(root->right, targetSum, cur_sum + root->val);
+        else
+        {
+            return hasPathSum_rec(root->left, targetSum, cur_sum + root->val) || hasPathSum_rec(root->right, targetSum, cur_sum + root->val);
+        }
     }
 
     bool hasPathSum(TreeNode *root, int targetSum)
