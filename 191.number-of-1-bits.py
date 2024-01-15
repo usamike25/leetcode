@@ -10,7 +10,7 @@ class Solution:
         total = 0
         while n:
             total += n % 2
-            n = n >> 1 # bitshift to the right by 1
+            n = n >> 1 # bitshift to the right  by 1
 
 
         return total
