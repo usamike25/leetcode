@@ -10,31 +10,26 @@ class Solution
 public:
     vector<int> twoSum(vector<int> &numbers, int target)
     {
-        // we use a two pointer solution
-        int r = 0;
-        int l = numbers.size() - 1;
-        vector<int> solution;
+        // two pointer solution
 
-        while (r < l)
+        int cur_total;
+
+        int l = 0;
+        int r = numbers.size() - 1;
+
+        while (numbers[l] + numbers[r] != target)
         {
-            if (numbers[r] + numbers[l] == target)
+            if (numbers[l] + numbers[r] > target)
             {
-                solution.push_back(r + 1);
-                solution.push_back(l + 1);
-                break;
-            }
-
-            if (numbers[r] + numbers[l] > target)
-            {
-                l--;
+                r--;
             }
             else
             {
-                r++;
+                l++;
             }
         }
 
-        return solution;
+        return {l + 1, r + 1};
     }
 };
 // @lc code=end
