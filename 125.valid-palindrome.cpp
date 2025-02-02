@@ -10,35 +10,35 @@ class Solution
 public:
     bool isPalindrome(string s)
     {
-        // init two pointers
-        int start = 0;
-        int end = s.size() - 1;
-        while (start <= end)
+        // using two poimters
+        int l = 0;
+        int r = s.size() - 1;
+
+
+        while (l != r && l < r)
         {
-
-            // check if not numeric
-            if (!isalnum(s[start]))
+            if (!isalnum(s[l]))
             {
-                start++;
+                l++;
                 continue;
             }
-            if (!isalnum(s[end]))
+            else if (!isalnum(s[r]))
             {
-                end--;
+                r--;
                 continue;
             }
 
-            // check if the same
-            if (tolower(s[start]) == tolower(s[end]))
-            {
-                start++;
-                end--;
-            }
-            else
+            else if (tolower(s[l])!= tolower(s[r]))
             {
                 return false;
             }
+            else
+            {
+                l++;
+                r--;
+            }
         }
+
         return true;
     }
 };
