@@ -14,38 +14,29 @@
 class Solution:
 
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        #lets us a bfs
-        
-        #init queue
-        q = collections.deque()
 
-        #add first level
+        
+        #lets us a bfs
+
+
+
+        q = deque()
+        output_list = []
+
         q.append(root)
 
-        list = []
-        #while loop
         while q:
-            sub_list = []
-            len_q = len(q)
-            for i in range(len_q):
 
-                pop_item = q.popleft()
-                if not pop_item:
-                    continue
+            level = []
 
-                if pop_item.left:
-                    q.append(pop_item.left)
-                if pop_item.right:
-                    q.append(pop_item.right)
-
-                sub_list.append(pop_item.val)
-
-            if sub_list:
-                list.append(sub_list)
-
-        return list
-
-
-
-# @lc code=end
-
+            for i in range(len(q)):
+                element = q.popleft()
+                if element:
+                    q.append(element.left)
+                    q.append(element.right)
+                    level.append(element.val)
+            
+            if level:
+                output_list.append(level)
+        
+        return output_list
