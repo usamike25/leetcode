@@ -14,29 +14,24 @@
 class Solution:
 
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-
-        
-        #lets us a bfs
-
-
-
+        # lets do a bfs
         q = deque()
-        output_list = []
-
         q.append(root)
+        res = []
 
-        while q:
-
-            level = []
-
+        while len(q) != 0:
+            cur_res = []
             for i in range(len(q)):
-                element = q.popleft()
-                if element:
-                    q.append(element.left)
-                    q.append(element.right)
-                    level.append(element.val)
+                curr = q.popleft()
+                if curr != None:
+                    cur_res.append(curr.val)
+                    q.append(curr.left)
+                    q.append(curr.right)
             
-            if level:
-                output_list.append(level)
+            res.append(cur_res) if len(cur_res) != 0 else None
         
-        return output_list
+        return res
+
+
+
+
